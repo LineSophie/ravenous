@@ -1,0 +1,33 @@
+/* App Body */
+.App {
+  text-align: center;
+}
+
+/*App Header */
+.AppHeader {
+  background-color: #958864;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(12px + 2vmin);
+  color: white;
+  padding: 0.5em;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+/* Background image for Search Bar*/
+.backgroundImg {
+  color: white;
+  height: auto;
+  background-image: url("../../images/background/lily-banse--YHSwy6uqvk-unsplash.png");
+  background-color: #cccccc;
+  background-position: center;
+  background-size: cover; 
+  position: relative;
+}
+
+.overlayImg {
+  background: rgba(0, 0, 0, 0.3);
+  padding-top: 10%;
+  padding-bottom: 10%;
+}

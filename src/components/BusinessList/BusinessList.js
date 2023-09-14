@@ -1,26 +1,27 @@
+/*
+ This component is responsible for rendering a list of businesses.
+ It receives a prop called "businesses," which is an array of business objects.
+ If the "businesses" array is undefined or null, it handles this case by returning nothing (null).
+ For each defined business in the array, it renders the "Business" component, passing the business data as a prop.
+*/
+
 import React from 'react';
 import Business from '../Business/Business';
-import './BusinessList.css';
+import styles from './BusinessList.module.css';
 
-function BusinessList(props) {
-    return (
-      <div className="BusinessList">
-        {props.businesses.map(business => (
-          <Business
-            image={business.image}
-            name={business.name}
-            address={business.address}
-            city={business.city}
-            state={business.state}
-            zipcode={business.zipcode}
-            category={business.category}
-            rating={business.rating}
-            reviewCount={business.reviewcount}
-          />
-        ))}
-      </div>
-    );
+
+const BusinessList = ({ businesses }) => {
+  if (!businesses) {
+    return null; // Handle the case when businesses is undefined or null
   }
 
-// Export Data 
+  return (
+    <div className={styles.BusinessList}>
+      {businesses.map((business) => {
+        return <Business business={business} key={business.id} />;
+      })}
+    </div>
+  );
+};
+
 export default BusinessList;

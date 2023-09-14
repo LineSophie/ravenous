@@ -1,28 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import BusinessList from '../BusinessList/BusinessList';
-import './App.css';
-import { businessData } from '../../data/businessData';
 import SearchBar from '../SearchBar/SearchBar';
+import Yelp from '../../utils/Yelp';
+import styles from './App.module.css';
 
-function App() {
+
+const App = () => {
+
+  const [businesses, setBusinesses] = useState([]);
+
+  const searchYelp = async (term, location, sortBy) => {
+    const businesses = await Yelp.search(term, location, sortBy);
+    setBusinesses(businesses);
+  };
 
   return (
-  <div className="App">
-    
-    <h1 className='App-header'>ravenous</h1>
+    <div className={styles.App}>
+      <h1 className={styles.AppHeader}>ravenous</h1>
 
-    <div className='backgroundImage'>
-      <div className='img-overlay'>
-       <SearchBar/>
+      <div className={styles.backgroundImg}>
+        <div className={styles.overlayImg}>
+          <SearchBar searchYelp={searchYelp} />
+        </div>
       </div>
+
+      {businesses && businesses.length === 0 ? (
+        <div>{/*Handle initial state*/}</div>
+      ) : (
+        <BusinessList businesses={businesses} />
+      )}
     </div>
-
-    <BusinessList
-     businesses = {businessData} 
-    />
-
-  </div>
   );
-}
+};
 
 export default App;

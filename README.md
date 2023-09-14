@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Ravenous ✨ 🍽️
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ravenous is a web application that allows users to search for and explore local restaurants using the Yelp Fusion API. It provides a simple interface for searching businesses based on various criteria such as term, location, and sorting options. Users can view detailed information about each business, including their name, address, category, rating, review count, and price.
 
-## Available Scripts
+![Ravenous App](src/images/preview/app-preview.png)
 
-In the project directory, you can run:
+## Features 
 
-### `npm start`
+🔎 Search for businesses by keyword, location, and sorting options. <br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🗂️ Sort the search results by highest rating, best match, or most reviewed. <br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+📝 View a list of search results with relevant information for each restaurant. <br>
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Getting Started 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run the Ravenous application locally, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository: git clone https://github.com/your-username/ravenous.git
+2. Navigate to the project directory: cd ravenous
+3. Install the dependencies: npm install
+4. Obtain a Yelp API key by creating an account on Yelp for Developers.
+5. Rename .env.example file to .env and replace YOUR_YELP_API_KEY with your actual Yelp API key.
+6. Start the application: npm start
+7. Open your browser and visit http://localhost:3000.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+*Note: Make sure you have Node.js and npm (Node Package Manager) installed.*
 
-### `npm run eject`
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+⚛️ React: JavaScript library for building user interfaces. <br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+🌈 HTML5 & CSS3: Markup and styling for the web application. <br>
 
-## Learn More
+🚀 JavaScript ES6: Modern JavaScript syntax and features. <br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🎨 FontAwesome: Icon library for adding visually appealing icons. <br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+⚙️ dotenv: Library for loading environment variables from a .env file. <br>
 
-### Code Splitting
+☁️ Heroku: Cloud platform for deploying and hosting the application. <br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🌐 Axios: Promise-based HTTP client for making API requests. <br>
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🌐 Yelp Fusion API: Provides access to Yelp's vast database of businesses and their information. <br>

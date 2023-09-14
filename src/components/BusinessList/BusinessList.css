@@ -1,7 +1,0 @@
-/* Div Container Business List Flex */
-.BusinessList {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 2.2rem 4%;
-  }

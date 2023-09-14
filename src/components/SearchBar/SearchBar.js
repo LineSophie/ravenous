@@ -1,57 +1,86 @@
+/*
+ This component provides a search interface for users to search for local restaurants.
+ It allows users to input search terms, locations, and select sorting options.
+ When a search is initiated, it calls the 'searchYelp' function, as defined in utils/Yelp.
+*/
+
 import React, { useState } from 'react';
-import './SearchBar.css'
+import styles from './SearchBar.module.css';
 
 const sortByOptions = {
-  "Best Match": "best_match",
-  "Highest Rated": "rating",
-  "Most Reviewed": "review_count",
+  'Highest Rated': 'rating',
+  'Best Match': 'best_match',
+  'Most Reviewed': 'review_count',
 };
 
+const SearchBar = ({ searchYelp }) => {
 
-function SearchBar() {
-  
-  const [searchTerm, setSearchTerm] = useState('');
+  const [term, setTerm] = useState('');
   const [location, setLocation] = useState('');
+  const [sortBy, setSortBy] = useState('best_match');
 
-  const handleSearch = () => {
-    // 
+  const handleTermChange = (e) => {
+    setTerm(e.target.value);
+  };
+
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
+  };
+
+  const sortHandler = (sortByOption) => {
+    setSortBy(sortByOption);
+  };
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    searchYelp(term, location, sortBy);
   };
 
   const renderSortByOptions = () => {
     return Object.keys(sortByOptions).map((sortByOption) => {
       let sortByOptionValue = sortByOptions[sortByOption];
-      return <li key={sortByOptionValue}>{sortByOption}</li>;
+      return (
+        <li
+          key={sortByOptionValue}
+          className={sortBy === sortByOptionValue ? styles.activeTag : ''}
+          onClick={() => sortHandler(sortByOptionValue)}
+        >
+          {sortByOption}
+        </li>
+      );
     });
   };
 
   return (
-  <div className="search-bar">
+    <div className={styles.SearchBar}>
+      <div className={styles.SearchBarSortOption}>
+        <ul>{renderSortByOptions()}</ul>
+      </div>
 
-    <div className='SearchBarSortOption'>
-      <ul>{renderSortByOptions()}</ul>
+      <form onSubmit={handleSearch}>
+        <input
+          id="search-business"
+          type="text"
+          placeholder="Search Restaurants..."
+          onChange={handleTermChange}
+        />
+
+        <input
+          id="search-location"
+          type="text"
+          placeholder="Where?"
+          onChange={handleLocationChange}
+        /> 
+
+        <br />
+        <br />
+
+        <button className={styles.searchBtn} type="submit">
+          Let's Go!
+        </button>
+      </form>
     </div>
-
-    <input
-      type="text"
-      placeholder="Search Businesses..."
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-    />
-
-    <input
-      type="text"
-      placeholder="Where?"
-      value={location}
-      onChange={(e) => setLocation(e.target.value)}
-      />
-
-      <br />
-      <br />
-
-      <button className='search-btn' onClick={handleSearch}>Let's Go</button>
-      
-  </div>
   );
-}
+};
 
 export default SearchBar;
